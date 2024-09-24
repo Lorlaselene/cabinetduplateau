@@ -25,18 +25,23 @@
 
         <div class="professional-list">
             <!-- Exemple de professionnel de santé -->
-            <div class="professional" data-specialty="Généraliste" onclick="toggleDetails(this)">
+
+
+            <div class="professional" data-specialty="Généraliste">
                 <div class="professional-header">
                     <img src="doctor1.jpg" alt="Dr. Alice Dupont" class="professional-photo">
                     <div class="professional-info">
-                        <h2>Dr. Alice Dupont</h2>
-                        <p>Généraliste</p>
-                        <p>Bureau : 101</p>
-                        <p>Journée de travail : Lundi</p>
+                        <h2>Oriane Lanier</h2>
+                        <p>Orthophoniste</p>
+                        <p>Bureau : 1</p>
+                        <p>Journée de travail : Lundi-Mardi-mercredi-Jeudi</p>
+                        <p>Horaire: 9h-19h</p>
+                        <p>Moyen de paiement: chèque ou espèce</p>
+                        <p>RDV: perfactive.fr</p>
                         <div class="rating">
                             <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
                         </div>
-                        <button class="contact-btn" onclick="contactProfessional('Dr. Alice Dupont', event)">Contacter</button>
+                        <button class="contact-btn" onclick="window.location.href='http://perfactive.fr'">Contact</button>
                         <p class="availability"></p>
                     </div>
                 </div>
@@ -47,7 +52,7 @@
                 </div>
             </div>
 
-            <div class="professional" data-specialty="Dermatologue" onclick="toggleDetails(this)">
+            <div class="professional" data-specialty="Dermatologue">
                 <div class="professional-header">
                     <img src="doctor2.jpg" alt="Dr. Marc Lefebvre" class="professional-photo">
                     <div class="professional-info">
@@ -69,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="professional" data-specialty="Dermatologue" onclick="toggleDetails(this)">
+            <div class="professional" data-specialty="Dermatologue">
                 <div class="professional-header">
                     <img src="doctor2.jpg" alt="Dr. Marc Lefebvre" class="professional-photo">
                     <div class="professional-info">
@@ -153,15 +158,10 @@
             retina_detect: true
         });
 
-        // Fonction pour afficher/masquer les détails du professionnel
-        function toggleDetails(element) {
-            element.classList.toggle('expanded');
-        }
-
         // Fonction pour contacter un professionnel (pop-up simulée)
         function contactProfessional(name, event) {
             event.stopPropagation(); // Empêcher le toggle des détails lors du clic sur le bouton
-            alert(`Vous pouvez contacter ${name} via email : contact@cabinetduplateau.fr`);
+            alert(`Leo eest mignon`);
         }
 
         // Fonction pour filtrer les professionnels par spécialité
