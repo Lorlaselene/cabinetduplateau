@@ -1,7 +1,7 @@
 /* Style général */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f2f7f5;
+    background-color: #f1f9f5;
     color: #333;
     margin: 0;
     padding: 0;
@@ -56,7 +56,7 @@ h1 {
 
 /* Style des rectangles pour les professionnels */
 .professional {
-    background-color: #d4f0e7;
+    background-color: #bff1e1;
     border-radius: 15px;
     overflow: hidden;
     cursor: pointer;
@@ -139,4 +139,11 @@ h1 {
 
 .contact-btn:hover {
     background-color: #1a6356;
+}footer p {
+    color: rgb(25, 138, 89);
 }
+.fa-leaf {
+    color: green; /* Changer la couleur de l'icône */
+    margin-left: 10px; /* Espace entre le nom et l'icône */
+}
+

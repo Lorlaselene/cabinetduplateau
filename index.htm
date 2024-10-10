@@ -17,8 +17,10 @@
             <label for="specialty-filter">Filtrer par spécialité :</label>
             <select id="specialty-filter" onchange="filterProfessionals()">
                 <option value="all">Tous</option>
-                <option value="Généraliste">Généraliste</option>
-                <option value="Dermatologue">Dermatologue</option>
+                <option value="Orthophoniste">Orthophoniste</option>
+                <option value="Ostéopathe">Ostéopathe</option>
+                <option value="Diététicienne">Diététicienne</option>
+                <option value="Psychologue">Psychologue</option>
                 <!-- Ajouter d'autres spécialités ici -->
             </select>
         </div>
@@ -26,17 +28,46 @@
         <div class="professional-list">
             <!-- Exemple de professionnel de santé -->
 
+            
+            <div class="professional" data-specialty="Orthophoniste">
+                <div class="professional-header">
+                    <img src="nature.png" alt="Dr. Alice Dupont" class="professional-photo">
+                    <div class="professional-info">
+                        <h2>
+                            Oriane Lanier <i class="nature.png"></i>
+                        </h2>
+                        
+                        <p>Orthophoniste</p>
+                        <p>Bureau : 1</p>
+                        <p>Journées de travail : Lundi-Mardi-mercredi-Jeudi</p>
+                        <p>Horaire: 9h-19h</p>
+                        <p>Moyen de paiement: chèque ou espèces</p>
+                        
+                        <div class="rating">
+                            
+                        </div>
+                        <button class="contact-btn" onclick="window.location.href='http://perfactive.fr'">Contact</button>
+                        <p class="availability"></p>
+                    </div>
+                </div>
+                <div class="details">
+                    
+                </div>
+            </div>
 
-            <div class="professional" data-specialty="Généraliste">
+            <div class="professional" data-specialty="Orthophoniste">
                 <div class="professional-header">
                     <img src="doctor1.jpg" alt="Dr. Alice Dupont" class="professional-photo">
                     <div class="professional-info">
-                        <h2>Oriane Lanier</h2>
+                       
+                        <h2>
+                            Clara Caradeuc <i class="fas fa-leaf"></i>
+                        </h2>
                         <p>Orthophoniste</p>
-                        <p>Bureau : 1</p>
-                        <p>Journée de travail : Lundi-Mardi-mercredi-Jeudi</p>
+                        <p>Bureau : 3</p>
+                        <p>Journées de travail : Lundi-Mardi-mercredi-Jeudi</p>
                         <p>Horaire: 9h-19h</p>
-                        <p>Moyen de paiement: chèque ou espèce</p>
+                        <p>Moyen de paiement: chèque/espèces ou carte bancaire</p>
                         <p>RDV: perfactive.fr</p>
                         <div class="rating">
                             <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
@@ -51,53 +82,116 @@
                     <p>Horaires : 9h - 18h</p>
                 </div>
             </div>
-
-            <div class="professional" data-specialty="Dermatologue">
+            <div class="professional" data-specialty="Ostéopathe">
                 <div class="professional-header">
-                    <img src="doctor2.jpg" alt="Dr. Marc Lefebvre" class="professional-photo">
+                    <img src="doctor1.jpg" alt="Dr. Alice Dupont" class="professional-photo">
                     <div class="professional-info">
-                        <h2>Dr. Marc Lefebvre</h2>
-                        <p>Dermatologue</p>
-                        <p>Bureau : 102</p>
-                        <p>Journée de travail : Mardi</p>
+                        <h2>
+                            Sylvie Martins <i class="fas fa-leaf"></i>
+                        </h2>
+                       
+                        <p>Ostéopathe</p>
+                        <p>Bureau : 2</p>
+                        <p>Journées de travail : Lundi-Mercredi-Vendredi</p>
+                        <p>Horaire: 8h-20h</p>
+                        <p>Moyen de paiement: chèque ou espèces </p>
+                        <p>RDV: doctolib.fr</p>
                         <div class="rating">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                            <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
                         </div>
-                        <button class="contact-btn" onclick="contactProfessional('Dr. Marc Lefebvre', event)">Contacter</button>
+                        <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/osteopathe/paris/sylvie-martins-paris?pid=practice-366252'">Contact</button>
                         <p class="availability"></p>
                     </div>
                 </div>
                 <div class="details">
-                    <p>Téléphone : 01 98 76 54 32</p>
-                    <p>Adresse : 456 Avenue de la Peau, 75000 Paris</p>
-                    <p>Horaires : 10h - 17h</p>
+                    <p>Téléphone : 01 23 45 67 89</p>
+                    <p>Adresse : 123 Rue de la Santé, 75000 Paris</p>
+                    <p>Horaires : 9h - 18h</p>
                 </div>
             </div>
-
-            <div class="professional" data-specialty="Dermatologue">
+            <div class="professional" data-specialty="Diététicienne">
                 <div class="professional-header">
-                    <img src="doctor2.jpg" alt="Dr. Marc Lefebvre" class="professional-photo">
+                    <img src="doctor1.jpg" alt="Dr. Alice Dupont" class="professional-photo">
                     <div class="professional-info">
-                        <h2>Dr. grgeege Lefebvre</h2>
-                        <p>Dermatologue</p>
-                        <p>Bureau : 102</p>
-                        <p>Journée de travail : Mardi</p>
-
-                        <button class="contact-btn" onclick="contactProfessional('Dr. Marc Lefebvre', event)">Contacter</button>
+                        <h2>
+                            Pauline vitse <i class="fas fa-leaf"></i>
+                        </h2>
+                        
+                        <p>Diététicienne</p>
+                        <p>Bureau : 3</p>
+                        <p>Journée de travail : Vendredi</p>
+                        <p>Horaire: 8h-17h</p>
+                        <p>Moyen de paiement: chèque ou carte bancaire</p>
+                        <p>RDV: <doctolib class="fr"></doctolib></p>
+                        <div class="rating">
+                            <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                        </div>
+                        <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/dieteticien/chatillon/pauline-vitse?pid=practice-513431#pricing'">Contact</button>
                         <p class="availability"></p>
                     </div>
                 </div>
                 <div class="details">
-                    <p>Téléphone : 01 98 76 54 32</p>
-                    <p>Adresse : 456 Avenue de la Peau, 75000 Paris</p>
-                    <p>Horaires : 10h - 17h</p>
+                    <p>Téléphone : 01 23 45 67 89</p>
+                    <p>Adresse : 123 Rue de la Santé, 75000 Paris</p>
+                    <p>Horaires : 9h - 18h</p>
+                </div>
+            </div>
+            <div class="professional" data-specialty="Psychologue">
+                <div class="professional-header">
+                    <img src="doctor1.jpg" alt="Dr. Alice Dupont" class="professional-photo">
+                    <div class="professional-info">
+                        <h2>
+                            Samantha Froumentin <i class="fas fa-leaf"></i>
+                        </h2>
+                      
+                        <p>Psychologue</p>
+                        <p>Bureau : 4</p>
+                        <p>Journées de travail : Lundi-Mardi-Mercredi-Vendredi</p>
+                        <p>Horaire: 8h-20h</p>
+                        <p>Moyen de paiement: chèque/espèces ou carte bancaire</p>
+                        <p>RDV: <doctolib class="fr"></doctolib></p>
+                        <div class="rating">
+                            <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                        </div>
+                        <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/psychologue/vanves/samantha-froumentin-vanves'">Contact</button>
+                        <p class="availability"></p>
+                    </div>
+                </div>
+                <div class="details">
+                    <p>Téléphone : 01 23 45 67 89</p>
+                    <p>Adresse : 123 Rue de la Santé, 75000 Paris</p>
+                    <p>Horaires : 9h - 18h</p>
+                </div>
+            </div>
+            <div class="professional" data-specialty="Psychologue">
+                <div class="professional-header">
+                    <img src="doctor1.jpg" alt="Dr. Alice Dupont" class="professional-photo">
+                    <div class="professional-info">
+                        <h2>
+                            Pauline vitse <i class="fas fa-leaf"></i>
+                        </h2>
+                        <h2>Léa Schild</h2>
+                        <p>Psychologue</p>
+                        <p>Bureau : 2</p>
+                        <p>Journée de travail :Mardi-Jeudi-Samedi</p>
+                        <p>Horaire: 8h-20h</p>
+                        <p>Moyen de paiement: chèque ou carte bancaire</p>
+                        <p>RDV: <doctolib class="fr"></doctolib></p>
+                        <div class="rating">
+                            <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                        </div>
+                        <button class="contact-btn" onclick="window.location.href='https://perfactive.fr/psychologue-clinicien-psychotherapeute/vanves/lea-schild'">Contact</button>
+                        <p class="availability"></p>
+                    </div>
+                </div>
+                <div class="details">
+                    <p>Téléphone : 01 23 45 67 89</p>
+                    <p>Adresse : 123 Rue de la Santé, 75000 Paris</p>
+                    <p>Horaires : 9h - 18h</p>
                 </div>
             </div>
 
 
-            <!-- Ajouter d'autres professionnels ici -->
-        </div>
-    </div>
 
     <!-- Script pour Plexus -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -195,5 +289,11 @@
         // Initialiser l'affichage des disponibilités
         updateAvailability();
     </script>
-</body>
-</html>
+<!-- Footer avec adresse et lien Google Maps -->
+<footer style="background-color: #f0f0f0; padding: 20px; text-align: center; position: relative; bottom: 0; width: 100%;">
+    <p><strong>Adresse :</strong> 12 Avenue de Verdun, 92170 Vanves</p>
+    <p><a href="https://www.google.com/maps/place/12+Avenue+de+Verdun,+92170+Vanves,+France/" target="_blank">Voir sur Google Maps</a></p>
+</footer>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
