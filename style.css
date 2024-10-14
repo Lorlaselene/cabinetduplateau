@@ -94,7 +94,7 @@ h1 {
 
 /* Effet de survol */
 .professional:hover {
-    background-color: #b8e3d3;
+    background-color: #dbffce;
     transform: scale(1.02);
 }
 
@@ -140,7 +140,7 @@ h1 {
 .contact-btn:hover {
     background-color: #1a6356;
 }footer p {
-    color: rgb(25, 138, 89);
+    color: rgb(21, 31, 26);
 }
 .fa-leaf {
     color: green; /* Changer la couleur de l'icône */
