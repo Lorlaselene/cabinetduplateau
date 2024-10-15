@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+$<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -6,62 +6,150 @@
     <title>Cabinet du Plateau - Professionnels de Santé</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .professional {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border: 1px solid #ccc;
-            margin: 20px 0;
+        /* Style général */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f1f9f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Empêche le défilement horizontal */
+        }
+
+        /* Conteneur du plexus */
+        #plexus-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #f9f9f9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Titre principal */
+        h1 {
+            text-align: center;
+            color: #2c7873;
+            margin-bottom: 40px;
+        }
+
+        /* Filtre des spécialités */
+        .filter-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-container select {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Liste des professionnels */
+        .professional-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Style des rectangles pour les professionnels */
+        .professional {
+            background-color: #d0eed9;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: max-height 0.5s ease, background-color 0.3s ease, transform 0.3s ease;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        /* Animation d'entrée */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         .professional-header {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
+            text-align: center;
         }
 
         .professional-photo {
-            max-width: 150px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             margin-bottom: 15px;
-        }
-
-        .professional-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
         }
 
         .professional-info h2, .professional-info p {
             margin: 5px 0;
         }
 
+        /* Effet de survol */
+        .professional:hover {
+            background-color: #dbffce;
+            transform: scale(1.02);
+        }
+
+        /* Bouton de contact */
         .contact-btn {
-            margin-top: 10px;
-            padding: 10px 20px;
             background-color: #2c7873;
-            color: white;
+            color: #fff;
+            padding: 8px 15px;
             border: none;
+            border-radius: 10px;
             cursor: pointer;
-            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin: 5px 0;
         }
 
         .contact-btn:hover {
-            background-color: #1e5550;
+            background-color: #1a6356;
         }
 
+        /* Pied de page */
         footer {
             background-color: #f0f0f0;
             padding: 20px;
             text-align: center;
+            width: 100%;
             position: relative;
             bottom: 0;
-            width: 100%;
+        }
+
+        footer p {
+            color: rgb(21, 31, 26);
+        }
+
+        .fa-leaf {
+            color: green;
+            margin-left: 10px;
+        }
+
+        /* Images */
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -84,10 +172,10 @@
         </div>
 
         <div class="professional-list">
-            <!-- Exemple de professionnel de santé -->
+            <!-- Oriane Lanier -->
             <div class="professional" data-specialty="Orthophoniste">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Dr. Alice Dupont" class="professional-photo">
+                    <img src="nature.png" alt="Oriane Lanier" class="professional-photo">
                     <div class="professional-info">
                         <h2>Oriane Lanier</h2>
                         <p>Orthophoniste</p>
@@ -101,9 +189,11 @@
                 </div>
             </div>
 
+ 
+            <!-- Clara Caradeuc -->
             <div class="professional" data-specialty="Orthophoniste">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Dr. Alice Dupont" class="professional-photo">
+                    <img src="nature.png" alt="Clara Caradeuc" class="professional-photo">
                     <div class="professional-info">
                         <h2>Clara Caradeuc</h2>
                         <p>Orthophoniste</p>
@@ -122,9 +212,10 @@
                 </div>
             </div>
 
+            <!-- Sylvie Martins -->
             <div class="professional" data-specialty="Ostéopathe">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Dr. Alice Dupont" class="professional-photo">
+                    <img src="nature.png" alt="Sylvie Martins" class="professional-photo">
                     <div class="professional-info">
                         <h2>Sylvie Martins</h2>
                         <p>Ostéopathe</p>
@@ -143,9 +234,10 @@
                 </div>
             </div>
 
+            <!-- Pauline Vitse -->
             <div class="professional" data-specialty="Diététicienne">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Dr. Alice Dupont" class="professional-photo">
+                    <img src="nature.png" alt="Pauline Vitse" class="professional-photo">
                     <div class="professional-info">
                         <h2>Pauline Vitse</h2>
                         <p>Diététicienne</p>
@@ -154,6 +246,7 @@
                         <p>Horaire: 8h-17h</p>
                         <p>Moyen de paiement: chèque ou carte bancaire</p>
                         <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/dieteticien/chatillon/pauline-vitse?pid=practice-513431#pricing'">RDV</button>
+                        <button class="contact-btn" onclick="window.location.href='https://www.pauline-vitse-site.fr'">Site web</button>
                         <p class="availability"></p>
                     </div>
                 </div>
@@ -164,9 +257,10 @@
                 </div>
             </div>
 
+            <!-- Samantha Froumentin -->
             <div class="professional" data-specialty="Psychologue">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Dr. Alice Dupont" class="professional-photo">
+                    <img src="nature.png" alt="Samantha Froumentin" class="professional-photo">
                     <div class="professional-info">
                         <h2>Samantha Froumentin</h2>
                         <p>Psychologue</p>
@@ -175,6 +269,7 @@
                         <p>Horaire: 8h-20h</p>
                         <p>Moyen de paiement: chèque/espèces ou carte bancaire</p>
                         <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/psychologue/vanves/samantha-froumentin-vanves'">RDV</button>
+                        <button class="contact-btn" onclick="window.location.href='https://www.samantha-froumentin-site.fr'">Site web</button>
                         <p class="availability"></p>
                     </div>
                 </div>
@@ -185,9 +280,10 @@
                 </div>
             </div>
 
+            <!-- Léa Schild -->
             <div class="professional" data-specialty="Psychologue">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Dr. Alice Dupont" class="professional-photo">
+                    <img src="nature.png" alt="Léa Schild" class="professional-photo">
                     <div class="professional-info">
                         <h2>Léa Schild</h2>
                         <p>Psychologue</p>
@@ -196,6 +292,7 @@
                         <p>Horaire: 8h-20h</p>
                         <p>Moyen de paiement: chèque ou carte bancaire</p>
                         <button class="contact-btn" onclick="window.location.href='https://perfactive.fr/psychologue-clinicien-psychotherapeute/vanves/lea-schild'">RDV</button>
+                        <button class="contact-btn" onclick="window.location.href='https://www.lea-schild-site.fr'">Site web</button>
                         <p class="availability"></p>
                     </div>
                 </div>

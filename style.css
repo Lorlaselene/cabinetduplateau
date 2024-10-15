@@ -16,7 +16,7 @@ body {
     height: 100%;
     z-index: -1;
 }
-
+ 
 /* Conteneur principal */
 .container {
     max-width: 1200px;
