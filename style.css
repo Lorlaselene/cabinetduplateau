@@ -26,6 +26,19 @@ body {
     z-index: 1;
 }
 
+/* En-tête et logo du cabinet */
+.site-header {
+    text-align: center;
+    padding: 10px 0 0;
+}
+
+.cabinet-logo {
+    display: block;
+    width: min(240px, 70vw);
+    height: auto;
+    margin: 0 auto 20px;
+}
+
 /* Titre principal */
 h1 {
     text-align: center;

@@ -101,6 +101,14 @@ $<!DOCTYPE html>
             margin-bottom: 15px;
         }
 
+        .orthophoniste-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 0;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
         .professional-info h2, .professional-info p {
             margin: 5px 0;
         }
@@ -158,7 +166,10 @@ $<!DOCTYPE html>
     <div id="plexus-background"></div>
 
     <div class="container">
-        <h1>Nos Professionnels de Santé</h1>
+        <header class="site-header">
+            <img src="logo-cabinet.png" alt="Logo du Cabinet du Plateau" class="cabinet-logo">
+            <h1>Nos Professionnels de Santé</h1>
+        </header>
         <!-- Filtre des spécialités -->
         <div class="filter-container">
             <label for="specialty-filter">Filtrer par spécialité :</label>
@@ -175,7 +186,7 @@ $<!DOCTYPE html>
             <!-- Oriane Lanier -->
             <div class="professional" data-specialty="Orthophoniste">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Oriane Lanier" class="professional-photo">
+                    <img src="orthophoniste.png" alt="Branche décorative des orthophonistes" class="professional-photo orthophoniste-photo">
                     <div class="professional-info">
                         <h2>Oriane Lanier</h2>
                         <p>Orthophoniste</p>
@@ -190,10 +201,27 @@ $<!DOCTYPE html>
             </div>
 
  
+            <!-- Garance Bretin -->
+            <div class="professional" data-specialty="Orthophoniste">
+                <div class="professional-header">
+                    <img src="orthophoniste.png" alt="Branche décorative des orthophonistes" class="professional-photo orthophoniste-photo">
+                    <div class="professional-info">
+                        <h2>Garance Bretin</h2>
+                        <p>Orthophoniste</p>
+                        <p>Bureau : 4</p>
+                        <p>Journées de travail : Lundi-Mardi-Mercredi-Jeudi</p>
+                        <p>Horaire : 9h-19h</p>
+                        <p>Moyen de paiement : virement uniquement</p>
+                        <button class="contact-btn" onclick="window.location.href='https://perfactive.fr/list/oriane-lanier'">RDV</button>
+                        <p class="availability"></p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Raphaëlle Romano -->
             <div class="professional" data-specialty="Orthophoniste">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Raphaëlle Romano" class="professional-photo">
+                    <img src="orthophoniste.png" alt="Branche décorative des orthophonistes" class="professional-photo orthophoniste-photo">
                     <div class="professional-info">
                         <h2>Raphaëlle Romano</h2>
                         <p>Orthophoniste</p>
