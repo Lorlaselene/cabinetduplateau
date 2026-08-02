@@ -13,15 +13,22 @@ $<!DOCTYPE html>
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f1f9f5;
+            background:
+                radial-gradient(ellipse at 8% 12%, rgba(139, 166, 126, 0.18) 0%, rgba(139, 166, 126, 0) 34%),
+                radial-gradient(ellipse at 92% 88%, rgba(44, 120, 115, 0.13) 0%, rgba(44, 120, 115, 0) 36%),
+                radial-gradient(circle at 78% 18%, rgba(198, 154, 67, 0.08) 0%, rgba(198, 154, 67, 0) 20%),
+                #f7faf3;
+            background-attachment: fixed;
             color: #333;
             margin: 0;
             padding: 0;
             overflow-x: hidden; /* Empêche le défilement horizontal */
+            position: relative;
         }
 
         /* Conteneur du plexus */
         #plexus-background {
+            display: block;
             position: fixed;
             top: 0;
             left: 0;
@@ -102,6 +109,30 @@ $<!DOCTYPE html>
         }
 
         .orthophoniste-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 0;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .osteopathe-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 0;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .nephrologue-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 0;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .psychologue-photo {
             width: 140px;
             height: 140px;
             border-radius: 0;
@@ -238,7 +269,7 @@ $<!DOCTYPE html>
             <!-- Sylvie Martins -->
             <div class="professional" data-specialty="Ostéopathe">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Sylvie Martins" class="professional-photo">
+                    <img src="osteopathe.png" alt="Branche décorative de l'ostéopathe" class="professional-photo osteopathe-photo">
                     <div class="professional-info">
                         <h2>Sylvie Martins</h2>
                         <p>Ostéopathe</p>
@@ -255,7 +286,7 @@ $<!DOCTYPE html>
             <!-- Samantha Froumentin -->
             <div class="professional" data-specialty="Psychologue">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Samantha Froumentin" class="professional-photo">
+                    <img src="psychologue.png" alt="Branche décorative de la psychologue" class="professional-photo psychologue-photo">
                     <div class="professional-info">
                         <h2>Samantha Froumentin</h2>
                         <p>Psychologue</p>
@@ -273,7 +304,7 @@ $<!DOCTYPE html>
             <!-- Samia Ben Hamida -->
             <div class="professional" data-specialty="Nephrologue">
                 <div class="professional-header">
-                    <img src="nature.png" alt="Samia Ben Hamida" class="professional-photo">
+                    <img src="nephrologue.png" alt="Branche décorative de la néphrologue" class="professional-photo nephrologue-photo">
                     <div class="professional-info">
                         <h2>Samia Ben Hamida</h2>
                         <p>Nephrologue</p>
@@ -347,6 +378,101 @@ $<!DOCTYPE html>
             },
             retina_detect: true
         });
+
+        // Animation organique : courbes et feuilles inspirées du ginkgo
+        // Elle remplace visuellement le plexus par une respiration végétale très discrète.
+        (() => {
+            const container = document.getElementById('plexus-background');
+            if (!container) return;
+
+            // Retirer le canvas de particles.js après son initialisation.
+            container.querySelectorAll('canvas').forEach(canvas => canvas.remove());
+
+            const canvas = document.createElement('canvas');
+            canvas.setAttribute('aria-hidden', 'true');
+            container.appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const curves = [
+                { start: [0.04, 0.78], c1: [0.20, 0.60], c2: [0.22, 0.22], end: [0.48, 0.08], phase: 0.0 },
+                { start: [0.98, 0.24], c1: [0.78, 0.34], c2: [0.78, 0.70], end: [0.55, 0.94], phase: 2.2 },
+                { start: [0.10, 0.20], c1: [0.30, 0.38], c2: [0.62, 0.22], end: [0.92, 0.12], phase: 4.3 }
+            ];
+
+            function resize() {
+                const ratio = Math.min(window.devicePixelRatio || 1, 2);
+                canvas.width = Math.floor(window.innerWidth * ratio);
+                canvas.height = Math.floor(window.innerHeight * ratio);
+                canvas.style.width = `${window.innerWidth}px`;
+                canvas.style.height = `${window.innerHeight}px`;
+                ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+            }
+
+            function drawGinkgoLeaf(x, y, angle, size, alpha) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(angle);
+                ctx.strokeStyle = `rgba(92, 125, 91, ${alpha})`;
+                ctx.fillStyle = `rgba(162, 181, 126, ${alpha * 0.32})`;
+                ctx.lineWidth = 1.2;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.quadraticCurveTo(-size * 0.10, -size * 0.62, -size * 0.48, -size);
+                ctx.quadraticCurveTo(-size * 0.04, -size * 0.82, size * 0.42, -size * 0.98);
+                ctx.quadraticCurveTo(size * 0.16, -size * 0.54, 0, 0);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(size * 0.02, -size * 0.82);
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            function drawCurve(curve, time) {
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                const p = point => [point[0] * w, point[1] * h];
+                const [sx, sy] = p(curve.start);
+                const [c1x, c1y] = p(curve.c1);
+                const [c2x, c2y] = p(curve.c2);
+                const [ex, ey] = p(curve.end);
+                const breathe = reducedMotion ? 0.7 : 0.16 + 0.84 * (0.5 + 0.5 * Math.sin(time * 0.0012 + curve.phase));
+                const flow = reducedMotion ? 0 : Math.sin(time * 0.001 + curve.phase) * 18;
+
+                ctx.strokeStyle = `rgba(62, 105, 79, ${0.18 * breathe})`;
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([18, 70]);
+                ctx.lineDashOffset = -time * 0.025;
+                ctx.beginPath();
+                ctx.moveTo(sx, sy);
+                ctx.bezierCurveTo(c1x, c1y, c2x, c2y, ex, ey);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                const leaves = [0.22, 0.42, 0.64, 0.82];
+                leaves.forEach((t, index) => {
+                    const x = (1 - t) ** 3 * sx + 3 * (1 - t) ** 2 * t * c1x + 3 * (1 - t) * t ** 2 * c2x + t ** 3 * ex;
+                    const y = (1 - t) ** 3 * sy + 3 * (1 - t) ** 2 * t * c1y + 3 * (1 - t) * t ** 2 * c2y + t ** 3 * ey;
+                    const tangentX = 3 * (1 - t) ** 2 * (c1x - sx) + 6 * (1 - t) * t * (c2x - c1x) + 3 * t ** 2 * (ex - c2x);
+                    const tangentY = 3 * (1 - t) ** 2 * (c1y - sy) + 6 * (1 - t) * t * (c2y - c1y) + 3 * t ** 2 * (ey - c2y);
+                    const side = index % 2 ? -1 : 1;
+                    const leafSway = flow * (index % 2 ? -0.45 : 0.45);
+                    drawGinkgoLeaf(x + leafSway, y + flow * 0.22, Math.atan2(tangentY, tangentX) + side * 1.15 + flow * 0.002, Math.min(w, h) * 0.018, 0.75 * breathe);
+                });
+            }
+
+            function animate(time) {
+                ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                curves.forEach(curve => drawCurve(curve, time));
+                if (!reducedMotion) window.requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', resize, { passive: true });
+            resize();
+            animate(0);
+        })();
 
         // Fonction pour filtrer les professionnels par spécialité
         function filterProfessionals() {
