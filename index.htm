@@ -222,6 +222,14 @@
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.72);
             color: #315b4c;
+            outline: none;
+        }
+        .filter-container select:focus,
+        .filter-container select:focus-visible {
+            border-color: #315b4c;
+            outline: 2px solid #315b4c;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(49, 91, 76, 0.16);
         }
         .professional-list {
             display: grid;
