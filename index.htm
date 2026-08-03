@@ -312,7 +312,6 @@
                         <p>Horaire: 9h-19h</p>
                         <p>Moyen de paiement: chèque/espèces ou virement</p>
                         <button class="contact-btn" onclick="window.location.href='http://perfactive.fr'">RDV</button>
-                        <p class="availability"></p>
                     </div>
                 </div>
             </div>
@@ -329,7 +328,6 @@
                         <p>Horaire: 9h-19h</p>
                         <p>Moyen de paiement: chèque/espèces ou carte bancaire</p>
                         <button class="contact-btn" onclick="window.location.href='https://docorga.com/praticien/658be9ab3d09b1b3d9507b17'">RDV</button>
-                        <p class="availability"></p>
                     </div>
                 </div>
             </div>
@@ -346,7 +344,6 @@
                         <p>Horaire : 9h-19h</p>
                         <p>Moyen de paiement : virement uniquement</p>
                         <button class="contact-btn" onclick="window.location.href='https://perfactive.fr/list/oriane-lanier'">RDV</button>
-                        <p class="availability"></p>
                     </div>
                 </div>
             </div>
@@ -364,7 +361,6 @@
                         <p>Moyen de paiement: chèque/espèces ou carte bancaire</p>
                         <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/psychologue/vanves/samantha-froumentin-vanves'">RDV</button>
                         <button class="contact-btn" style="display: none;" onclick="window.location.href='https://www.samantha-froumentin-site.fr'">Site web</button>
-                        <p class="availability"></p>
                     </div>
                 </div>
             </div>
@@ -381,7 +377,6 @@
                         <p>Horaire: 8h-20h</p>
                         <p>Moyen de paiement: chèque/espèces ou carte bancaire</p>
                         <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/nephrologue/saint-ouen-sur-seine/samia-ben-hamida-saint-ouen-sur-seine?pid=practice-752691'">RDV</button>
-                        <p class="availability"></p>
                     </div>
                 </div>
             </div>
@@ -398,7 +393,6 @@
                         <p>Horaire: 8h-20h</p>
                         <p>Moyen de paiement: chèque ou espèces</p>
                         <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/osteopathe/paris/sylvie-martins-paris?pid=practice-366252'">RDV</button>
-                        <p class="availability"></p>
                     </div>
                 </div>
             </div>
@@ -574,28 +568,6 @@
             });
         }
 
-        // Fonction pour mettre à jour la disponibilité
-        function updateAvailability() {
-            const currentHour = new Date().getHours();
-            const professionals = document.querySelectorAll('.professional');
-            professionals.forEach(pro => {
-                const availability = pro.querySelector('.availability');
-                const schedule = [...pro.querySelectorAll('.professional-info p')]
-                    .map(paragraph => paragraph.textContent)
-                    .find(text => /Horaire/i.test(text));
-                const hours = schedule?.match(/(\d+)h\s*[-–]\s*(\d+)h/);
-                if (availability && hours) {
-                    const start = parseInt(hours[1], 10);
-                    const end = parseInt(hours[2], 10);
-                    availability.textContent = (currentHour >= start && currentHour < end)
-                        ? 'Actuellement disponible'
-                        : 'Fermé';
-                }
-            });
-        }
-
-        // Initialiser l'affichage des disponibilités
-        updateAvailability();
     </script>
 
     <!-- Footer avec adresse et lien Google Maps -->
