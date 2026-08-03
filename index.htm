@@ -1,4 +1,4 @@
-$<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -189,6 +189,92 @@ $<!DOCTYPE html>
         img {
             max-width: 100%;
             height: auto;
+        }
+    </style>
+<style id="visual-preview-overrides">
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f7faf3;
+        }
+        .container {
+            max-width: 1180px;
+            padding: 28px 24px 42px;
+        }
+        .cabinet-logo {
+            width: min(260px, 58vw) !important;
+            margin: 0 auto 8px !important;
+            display: block;
+        }
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #315b4c;
+            margin: 4px 0 24px;
+        }
+        .filter-container {
+            margin: 0 auto 28px;
+            color: #53665a;
+        }
+        .filter-container select {
+            padding: 9px 34px 9px 12px;
+            border: 1px solid rgba(81, 117, 88, 0.32);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.72);
+            color: #315b4c;
+        }
+        .professional-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+        .professional {
+            background: rgba(228, 240, 229, 0.88);
+            border: 1px solid rgba(90, 127, 96, 0.18);
+            border-radius: 22px;
+            padding: 22px 20px 20px;
+            min-height: 330px;
+            box-shadow: 0 10px 28px rgba(54, 83, 61, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .professional:hover {
+            background: rgba(238, 247, 235, 0.95);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 34px rgba(54, 83, 61, 0.14);
+        }
+        .professional-photo,
+        .orthophoniste-photo,
+        .osteopathe-photo,
+        .nephrologue-photo,
+        .psychologue-photo {
+            width: 104px;
+            height: 104px;
+            margin-bottom: 10px;
+        }
+        .professional-info h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #315b4c;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+        .professional-info p {
+            color: #3e5046;
+            font-size: 0.95rem;
+        }
+        .contact-btn {
+            background: #3c7d70;
+            border-radius: 999px;
+            padding: 9px 19px;
+            margin-top: 9px;
+        }
+        footer {
+            background: rgba(255, 255, 255, 0.54);
+            border-top: 1px solid rgba(90, 127, 96, 0.12);
+        }
+        @media (max-width: 720px) {
+            .professional-list { grid-template-columns: 1fr; }
+            .professional { min-height: 0; }
+            .cabinet-logo { width: min(230px, 68vw) !important; }
         }
     </style>
 </head>
