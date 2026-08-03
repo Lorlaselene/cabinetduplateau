@@ -317,24 +317,6 @@
                 </div>
             </div>
 
- 
-            <!-- Garance Bretin -->
-            <div class="professional" data-specialty="Orthophoniste">
-                <div class="professional-header">
-                    <img src="orthophoniste.png" alt="Branche décorative des orthophonistes" class="professional-photo orthophoniste-photo">
-                    <div class="professional-info">
-                        <h2>Garance Bretin</h2>
-                        <p>Orthophoniste</p>
-                        <p>Bureau : 4</p>
-                        <p>Journées de travail : Lundi-Mardi-Mercredi-Jeudi</p>
-                        <p>Horaire : 9h-19h</p>
-                        <p>Moyen de paiement : virement uniquement</p>
-                        <button class="contact-btn" onclick="window.location.href='https://perfactive.fr/list/oriane-lanier'">RDV</button>
-                        <p class="availability"></p>
-                    </div>
-                </div>
-            </div>
-
             <!-- Raphaëlle Romano -->
             <div class="professional" data-specialty="Orthophoniste">
                 <div class="professional-header">
@@ -352,18 +334,18 @@
                 </div>
             </div>
 
-            <!-- Sylvie Martins -->
-            <div class="professional" data-specialty="Ostéopathe">
+            <!-- Garance Bretin -->
+            <div class="professional" data-specialty="Orthophoniste">
                 <div class="professional-header">
-                    <img src="osteopathe.png" alt="Branche décorative de l'ostéopathe" class="professional-photo osteopathe-photo">
+                    <img src="orthophoniste.png" alt="Branche décorative des orthophonistes" class="professional-photo orthophoniste-photo">
                     <div class="professional-info">
-                        <h2>Sylvie Martins</h2>
-                        <p>Ostéopathe</p>
-                        <p>Bureau : 2</p>
-                        <p>Journées de travail : Lundi-Mercredi-Vendredi</p>
-                        <p>Horaire: 8h-20h</p>
-                        <p>Moyen de paiement: chèque ou espèces</p>
-                        <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/osteopathe/paris/sylvie-martins-paris?pid=practice-366252'">RDV</button>
+                        <h2>Garance Bretin</h2>
+                        <p>Orthophoniste</p>
+                        <p>Bureau : 4</p>
+                        <p>Journées de travail : Lundi-Mardi-Mercredi-Jeudi</p>
+                        <p>Horaire : 9h-19h</p>
+                        <p>Moyen de paiement : virement uniquement</p>
+                        <button class="contact-btn" onclick="window.location.href='https://perfactive.fr/list/oriane-lanier'">RDV</button>
                         <p class="availability"></p>
                     </div>
                 </div>
@@ -399,6 +381,23 @@
                         <p>Horaire: 8h-20h</p>
                         <p>Moyen de paiement: chèque/espèces ou carte bancaire</p>
                         <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/nephrologue/saint-ouen-sur-seine/samia-ben-hamida-saint-ouen-sur-seine?pid=practice-752691'">RDV</button>
+                        <p class="availability"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sylvie Martins -->
+            <div class="professional" data-specialty="Ostéopathe">
+                <div class="professional-header">
+                    <img src="osteopathe.png" alt="Branche décorative de l'ostéopathe" class="professional-photo osteopathe-photo">
+                    <div class="professional-info">
+                        <h2>Sylvie Martins</h2>
+                        <p>Ostéopathe</p>
+                        <p>Bureau : 2</p>
+                        <p>Journées de travail : Lundi-Mercredi-Vendredi</p>
+                        <p>Horaire: 8h-20h</p>
+                        <p>Moyen de paiement: chèque ou espèces</p>
+                        <button class="contact-btn" onclick="window.location.href='https://www.doctolib.fr/osteopathe/paris/sylvie-martins-paris?pid=practice-366252'">RDV</button>
                         <p class="availability"></p>
                     </div>
                 </div>
@@ -581,11 +580,16 @@
             const professionals = document.querySelectorAll('.professional');
             professionals.forEach(pro => {
                 const availability = pro.querySelector('.availability');
-                const hours = pro.querySelector('.details p:nth-of-type(3)').textContent.match(/(\d+)h - (\d+)h/);
-                if (hours) {
-                    const start = parseInt(hours[1]);
-                    const end = parseInt(hours[2]);
-                    availability.textContent = (currentHour >= start && currentHour < end) ? 'Actuellement disponible' : 'Fermé';
+                const schedule = [...pro.querySelectorAll('.professional-info p')]
+                    .map(paragraph => paragraph.textContent)
+                    .find(text => /Horaire/i.test(text));
+                const hours = schedule?.match(/(\d+)h\s*[-–]\s*(\d+)h/);
+                if (availability && hours) {
+                    const start = parseInt(hours[1], 10);
+                    const end = parseInt(hours[2], 10);
+                    availability.textContent = (currentHour >= start && currentHour < end)
+                        ? 'Actuellement disponible'
+                        : 'Fermé';
                 }
             });
         }
